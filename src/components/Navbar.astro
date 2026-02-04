@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+
+export type Brand = {
+  name: string;
+  email: string;
+  navCta?: string;
+};
+
+const {
+  brand,
+  logo,
+  links = [
+    { label: "Studio", href: "#studio" },
+    { label: "Work", href: "#work" },
+    { label: "Contact", href: "#contact" },
+  ],
+} = Astro.props as {
+  brand: Brand;
+  logo: ImageMetadata; // kommt von astro:assets import
+  links?: { label: string; href: string }[];
+};
+---
+
+<header class="sticky top-0 z-50">
+  <div class="mx-auto max-w-6xl px-5">
+    <div class="mt-4 relative flex items-center rounded-2xl glass glass-sweep px-4 py-3">
+      <a href="/" class="flex items-center gap-3">
+        <!-- <Image
+          class="h-7 w-7 rounded-xl object-contain"
+          draggable="false"
+          src={logo}
+          alt={`${brand.name} logo`}
+        /> -->
+        <span class="text-sm font-semibold tracking-wide">{brand.name}</span>
+      </a>
+
+      <!-- Centered Nav -->
+      <nav
+        class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-6 text-sm text-white/70 md:flex"
+        aria-label="Navigation"
+      >
+        {links.map((l) => (
+          <a class="transition hover:text-white" href={l.href}>
+            {l.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Right CTA -->
+      <div class="ml-auto">
+        <a
+          href={`mailto:${brand.email[0]}?subject=inviqon%20%E2%80%94%20Inquiry`}
+          class="rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold text-white ring-1 ring-white/10 transition hover:bg-white/15"
+        >
+          {brand.navCta ?? brand.email[0]}
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

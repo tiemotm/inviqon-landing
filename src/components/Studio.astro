@@ -1,0 +1,160 @@
+---
+const capabilities = [
+  {
+    title: "Web Apps",
+    tag: "Product-grade UI",
+    desc: "From MVP to production: dashboards, portals, and customer-facing apps with clean architecture and long-term maintainability.",
+    highlights: ["Next.js / Astro", "Auth & RBAC", "SSR + edge-ready"],
+  },
+  {
+    title: "Mobile Apps",
+    tag: "iOS & Android",
+    desc: "Focused mobile experiences that feel native — paired with reliable backend foundations and release discipline.",
+    highlights: ["React Native", "Flutter", "API-first", "App lifecycle"],
+  },
+  {
+    title: "Internal Tools",
+    tag: "Ops acceleration",
+    desc: "Internal platforms that remove friction: admin panels, back-office tooling, workflows, and data interfaces.",
+    highlights: ["Admin UX", "Audit trails", "Role-based access"],
+  },
+  {
+    title: "Automations",
+    tag: "Less manual work",
+    desc: "Automation pipelines for email/document parsing, routing, actions and notifications — designed for correctness.",
+    highlights: ["Parsing + extraction", "Rule engines", "Queue-based jobs"],
+  },
+  {
+    title: "Integrations",
+    tag: "Systems connected",
+    desc: "We connect your stack reliably: Microsoft 365, Google Workspace, CRMs, payment providers, and custom APIs.",
+    highlights: ["OAuth & tokens", "Webhooks", "Idempotency"],
+  },
+  {
+    title: "Shopify Apps",
+    tag: "Optional",
+    desc: "Shopify apps and storefront extensions — built with a product mindset, not quick hacks.",
+    highlights: ["Admin apps", "App Bridge", "Polaris UI"],
+    optional: true,
+  },
+];
+
+const stats = [
+  { k: "0→1 builds", v: "MVP → production-ready foundations" },
+  { k: "Systems", v: "APIs, queues, auth, observability" },
+  { k: "Quality", v: "Maintainable codebases, not prototypes" },
+];
+---
+
+<section class="relative" id="studio">
+  <div class="mx-auto max-w-6xl px-5">
+    <div class="py-16 md:py-24">
+      <div class="grid gap-12 md:grid-cols-[1.05fr,0.95fr] md:items-start">
+        <!-- Left: editorial intro -->
+        <div>
+          <h2 class="mt-5 text-center text-3xl font-semibold tracking-tight text-white/95 md:text-5xl">
+            We ship <span class="accent">product-grade software</span> — with engineering discipline.
+          </h2>
+
+          <p class="mt-6 text-base text-center leading-relaxed text-white/65 md:text-lg">
+            inviqon builds modern digital products for teams that care about quality.
+            We design the interface, engineer the system, and deliver software that stays maintainable as it grows.
+          </p>
+
+          <!-- mini proof / pillars (not tiles) -->
+          <!-- principles / proof -->
+          <div class="mt-10 rounded-2xl glass px-6 py-6">
+            <p class="text-xs tracking-[0.24em] text-white/55 uppercase">Principles</p>
+
+            <div class="mt-4 space-y-4">
+              <div>
+                <p class="text-sm font-semibold text-white/90">Clarity over complexity</p>
+                <p class="mt-1 text-sm leading-relaxed text-white/65">
+                  Clean interfaces, obvious flows, and systems that remain easy to reason about.
+                </p>
+              </div>
+
+              <div class="h-px w-full bg-gradient-to-r from-transparent via-white/12 to-transparent"></div>
+
+              <div>
+                <p class="text-sm font-semibold text-white/90">Maintainable by design</p>
+                <p class="mt-1 text-sm leading-relaxed text-white/65">
+                  We build foundations that scale with your product — not prototypes that collapse later.
+                </p>
+              </div>
+
+              <div class="h-px w-full bg-gradient-to-r from-transparent via-white/12 to-transparent"></div>
+
+              <div>
+                <p class="text-sm font-semibold text-white/90">Shipping discipline</p>
+                <p class="mt-1 text-sm leading-relaxed text-white/65">
+                  Small iterations, strong review standards, and pragmatic delivery you can rely on.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right: capability stack with rail -->
+        <div>
+          <div class="rounded-2xl glass px-6 py-6">
+            <div class="flex items-center justify-between gap-4">
+              <p class="text-sm font-semibold text-white/90">Capabilities</p>
+              <p class="text-xs tracking-[0.18em] text-white/45 uppercase">Build · Automate · Integrate</p>
+            </div>
+
+            <div class="mt-6">
+              <ol class="relative space-y-6">
+                <!-- rail -->
+                <div class="pointer-events-none absolute left-[11px] top-2 h-[calc(100%-8px)] w-px bg-gradient-to-b from-white/20 via-white/10 to-transparent"></div>
+
+                {capabilities.map((c, idx) => (
+                  <li class="relative pl-10">
+                    {/* node */}
+                    <div class="absolute left-0 top-[6px] h-6 w-6 rounded-full bg-white/5 ring-1 ring-white/10 flex items-center justify-center">
+                      <div class="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-cyan-300/80 via-violet-300/80 to-indigo-300/70 shadow-[0_0_18px_rgba(170,120,255,0.18)]"></div>
+                    </div>
+
+                    <div class="flex items-start justify-between gap-4">
+                      <div>
+                        <p class="text-sm font-semibold text-white/95">
+                          {c.title}
+                          {c.optional && (
+                            <span class="ml-2 rounded-full bg-white/5 px-2 py-0.5 text-[10px] font-semibold text-white/55 ring-1 ring-white/10">
+                              optional
+                            </span>
+                          )}
+                        </p>
+                        <p class="mt-1 text-xs tracking-[0.18em] uppercase text-white/45">{c.tag}</p>
+                      </div>
+                      <span class="text-[11px] font-semibold text-white/55">
+                        {(idx + 1).toString().padStart(2, "0")}
+                      </span>
+                    </div>
+
+                    <p class="mt-3 text-sm leading-relaxed text-white/65">
+                      {c.desc}
+                    </p>
+
+                    <div class="mt-4 flex flex-wrap gap-2">
+                      {c.highlights.map((h) => (
+                        <span class="rounded-full bg-white/5 px-2.5 py-1 text-[11px] text-white/65 ring-1 ring-white/10">
+                          {h}
+                        </span>
+                      ))}
+                    </div>
+
+                    <!-- subtle signal bar -->
+                    <div class="mt-5 h-px w-full bg-gradient-to-r from-transparent via-white/12 to-transparent"></div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+
+          <div class="mx-auto mt-10 h-px w-24 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

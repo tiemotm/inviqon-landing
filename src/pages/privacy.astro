@@ -1,0 +1,221 @@
+---
+import Navbar from "../components/Navbar.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import inviqonLogo from "../assets/inviqon.png";
+
+const brand = {
+  name: "inviqon.",
+  email: "hello@inviqon.com",
+};
+
+const legal = {
+  fullName: "Tiemo Timtschenko",
+  address1: "Kaiserstraße 91",
+  address2: "40764 Langenfeld",
+  country: "Germany",
+  phone: "+49 176 64039302",
+};
+---
+
+<BaseLayout title={`Privacy Policy — ${brand.name}`} description={`Privacy Policy of ${brand.name}.`}>
+  <Navbar brand={brand} logo={inviqonLogo} />
+
+  <main class="relative">
+    <div class="mx-auto max-w-6xl px-5">
+      <section class="py-14 md:py-20">
+        <div class="mx-auto w-full max-w-3xl">
+          <p class="text-xs tracking-[0.24em] text-white/55">LEGAL</p>
+          <h1 class="mt-4 text-3xl font-semibold tracking-tight text-white/95 md:text-5xl">
+            Privacy Policy
+          </h1>
+          <p class="mt-4 text-base leading-relaxed text-white/65 md:text-lg">
+            This Privacy Policy explains how we process personal data when you visit this website and contact us.
+            It applies to this website only.
+          </p>
+
+          <div class="mt-10 space-y-6">
+            <!-- Controller -->
+            <section class="rounded-2xl glass px-6 py-6">
+              <h2 class="text-sm font-semibold text-white/90">1) Controller</h2>
+              <div class="mt-3 text-sm leading-relaxed text-white/70">
+                <p class="text-white/85 font-medium">{legal.fullName}</p>
+                <p>{brand.name} — brand name</p>
+                <p>{legal.address1}</p>
+                <p>{legal.address2}</p>
+                <p>{legal.country}</p>
+                <p class="mt-3">
+                  Email:&nbsp;
+                  <a
+                    class="text-white/85 underline decoration-white/20 hover:decoration-white/60"
+                    href={`mailto:${brand.email}`}
+                  >
+                    {brand.email}
+                  </a>
+                </p>
+                <p>Phone: {legal.phone}</p>
+              </div>
+            </section>
+
+            <!-- Scope -->
+            <section class="rounded-2xl glass px-6 py-6">
+              <h2 class="text-sm font-semibold text-white/90">2) What data we process</h2>
+              <div class="mt-3 space-y-3 text-sm leading-relaxed text-white/70">
+                <p>
+                  We process personal data only when necessary for operating this website, ensuring its security,
+                  and responding to your inquiries.
+                </p>
+                <p>
+                  Personal data may include information such as your IP address (in server logs), email address, and
+                  any information you provide when contacting us.
+                </p>
+              </div>
+            </section>
+
+            <!-- Hosting / Logs -->
+            <section class="rounded-2xl glass px-6 py-6">
+              <h2 class="text-sm font-semibold text-white/90">3) Website hosting &amp; server log files</h2>
+              <div class="mt-3 space-y-3 text-sm leading-relaxed text-white/70">
+                <p>
+                  When you visit this website, the hosting provider (or our server) may automatically collect
+                  technical information in so-called server log files. This typically includes:
+                  IP address, date and time of access, requested page/file, referrer URL, browser type/version,
+                  operating system, and status codes.
+                </p>
+                <p>
+                  <span class="text-white/85 font-medium">Purpose:</span> secure and stable operation of the website,
+                  troubleshooting, and defense against misuse.
+                </p>
+                <p>
+                  <span class="text-white/85 font-medium">Legal basis:</span> Art. 6(1)(f) GDPR (legitimate interests).
+                </p>
+                <p>
+                  Log data is generally stored for a limited period and then deleted in accordance with the hosting
+                  provider’s retention policies and technical requirements.
+                </p>
+              </div>
+            </section>
+
+            <!-- Contact -->
+            <section class="rounded-2xl glass px-6 py-6">
+              <h2 class="text-sm font-semibold text-white/90">4) Contact by email</h2>
+              <div class="mt-3 space-y-3 text-sm leading-relaxed text-white/70">
+                <p>
+                  If you contact us by email, we will process the personal data you provide (e.g., your email address,
+                  your name if included, and the content of your message) to handle your request.
+                </p>
+                <p>
+                  <span class="text-white/85 font-medium">Legal basis:</span> Art. 6(1)(b) GDPR (steps prior to entering
+                  into a contract) or Art. 6(1)(f) GDPR (legitimate interest in responding to inquiries), depending on
+                  the nature of your request.
+                </p>
+                <p>
+                  We retain correspondence only as long as necessary to process the request and to meet legal
+                  retention obligations (if applicable).
+                </p>
+              </div>
+            </section>
+
+            <!-- Cookies / Tracking -->
+            <section class="rounded-2xl glass px-6 py-6">
+              <h2 class="text-sm font-semibold text-white/90">5) Cookies &amp; analytics</h2>
+              <div class="mt-3 space-y-3 text-sm leading-relaxed text-white/70">
+                <p>
+                  We do not use analytics or tracking tools on this website. We do not use marketing cookies.
+                </p>
+                <p>
+                  If we introduce analytics or similar services in the future, we will update this Privacy Policy
+                  accordingly and, where required, obtain your consent.
+                </p>
+              </div>
+            </section>
+
+            <!-- Fonts -->
+            <section class="rounded-2xl glass px-6 py-6">
+              <h2 class="text-sm font-semibold text-white/90">6) Fonts</h2>
+              <div class="mt-3 space-y-3 text-sm leading-relaxed text-white/70">
+                <p>
+                  Fonts used on this website are integrated locally. No connection to external font providers is
+                  established when loading the website.
+                </p>
+                <p>
+                  <span class="text-white/85 font-medium">Legal basis:</span> Art. 6(1)(f) GDPR (legitimate interest in
+                  a consistent and performant presentation).
+                </p>
+              </div>
+            </section>
+
+            <!-- Third-party content -->
+            <section class="rounded-2xl glass px-6 py-6">
+              <h2 class="text-sm font-semibold text-white/90">7) Third-party services and embedded content</h2>
+              <div class="mt-3 space-y-3 text-sm leading-relaxed text-white/70">
+                <p>
+                  This website currently does not embed third-party content (such as maps, videos, or social media
+                  widgets) that would automatically transmit personal data to third parties on page load.
+                </p>
+                <p>
+                  If we add such services in the future, we will list them here including the provider, purpose,
+                  and legal basis.
+                </p>
+              </div>
+            </section>
+
+            <!-- Your rights -->
+            <section class="rounded-2xl glass px-6 py-6">
+              <h2 class="text-sm font-semibold text-white/90">8) Your rights under the GDPR</h2>
+              <div class="mt-3 space-y-3 text-sm leading-relaxed text-white/70">
+                <p>
+                  You have the right to request access to your personal data, rectification, deletion, restriction
+                  of processing, and data portability, as applicable under the GDPR.
+                </p>
+                <p>
+                  You also have the right to object to processing based on Art. 6(1)(f) GDPR for reasons arising from
+                  your particular situation.
+                </p>
+                <p>
+                  If processing is based on consent, you can withdraw consent at any time with effect for the future.
+                </p>
+                <p>
+                  You have the right to lodge a complaint with a supervisory authority, in particular in the EU member
+                  state of your habitual residence, place of work, or the place of the alleged infringement.
+                </p>
+              </div>
+            </section>
+
+            <!-- Security -->
+            <section class="rounded-2xl glass px-6 py-6">
+              <h2 class="text-sm font-semibold text-white/90">9) Security</h2>
+              <div class="mt-3 text-sm leading-relaxed text-white/70">
+                <p>
+                  We take appropriate technical and organizational measures to protect personal data. However, please
+                  note that data transmission over the internet (e.g., email communication) can have security gaps.
+                </p>
+              </div>
+            </section>
+
+            <!-- Updates -->
+            <section class="rounded-2xl glass px-6 py-6">
+              <h2 class="text-sm font-semibold text-white/90">10) Updates to this Privacy Policy</h2>
+              <div class="mt-3 text-sm leading-relaxed text-white/70">
+                <p>
+                  We may update this Privacy Policy to reflect changes in legal requirements or our services. The
+                  current version is always available on this page.
+                </p>
+              </div>
+            </section>
+
+            <div class="pt-2 text-xs text-white/45">
+              <p>Last updated: {new Date().toLocaleDateString("en-GB")}</p>
+            </div>
+
+            <div class="mt-10 h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent"></div>
+
+            <div class="flex items-center justify-between text-sm text-white/60">
+              <a class="hover:text-white" href="/imprint">← Imprint</a>
+              <a class="hover:text-white" href="/">Back to home →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</BaseLayout>

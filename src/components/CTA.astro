@@ -1,0 +1,82 @@
+---
+const { email } = Astro.props as { email: string };
+const subject = "inviqon — Project inquiry";
+const body =
+  "Hi inviqon,%0A%0AGoal:%20...%0AContext:%20...%0ATimeline:%20...%0ABudget%20range%20(optional):%20...%0A%0AThanks,%0A";
+
+import Image from "astro/components/Image.astro";
+import whatsAppButtonGreenLarge from "../assets/buttons/whatsapp/green/WhatsAppButtonGreenLarge.svg";
+---
+
+<section class="relative" id="contact">
+  <div class="mx-auto max-w-6xl px-5">
+    <div class="py-16 md:py-24">
+      <div class="rounded-2xl glass px-6 py-10 md:px-10">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="text-xs tracking-[0.24em] text-white/55">PROJECT INQUIRIES</p>
+
+          <h2 class="mt-5 text-3xl font-semibold tracking-tight text-white/95 md:text-5xl">
+            Let’s build something <span class="accent">serious</span>.
+          </h2>
+
+          <p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/65 md:text-lg">
+            Tell us what you’re building — we’ll reply with a clear next step.
+            If it’s a fit, we’ll propose a lightweight plan and timeline.
+          </p>
+
+          <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href={`mailto:${email}?subject=${encodeURIComponent(subject)}&body=${body}`}
+              class="rounded-xl bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/10 transition hover:bg-white/15"
+            >
+              Start an inquiry
+            </a>
+
+            <a
+              href={`mailto:${email}?subject=${encodeURIComponent(subject)}`}
+              class="text-sm font-medium text-white/70 transition hover:text-white"
+            >
+              {email}
+            </a>
+          </div>
+
+          <div class="mx-auto mt-12 max-w-xl text-center">
+            <div class="mx-auto h-px w-24 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+            <p class="mt-6 text-sm leading-relaxed text-white/65">
+              Prefer a faster, informal first touch?
+              <br class="hidden sm:block" />
+              Reach out on WhatsApp — short context is enough.
+            </p>
+
+            <div class="mt-5 flex justify-center">
+              <a
+                href="https://wa.me/+491601865018?text=Hi%2C%0AI%20came%20across%20your%20work%20and%20wanted%20to%20reach%20out.%0A%0AContext%3A%0A%E2%80%94%20What%20I%E2%80%99m%20working%20on%20%2F%20thinking%20about%0A%E2%80%94%20Where%20I%E2%80%99m%20currently%20at%0A%E2%80%94%20What%20I%E2%80%99d%20like%20to%20explore%0A%0ALooking%20forward%20to%20your%20thoughts."
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Start WhatsApp conversation with inviqon"
+                class="group inline-flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3 ring-1 ring-white/10 transition hover:bg-white/10"
+              >
+                <Image
+                  src={whatsAppButtonGreenLarge}
+                  alt="Chat with inviqon on WhatsApp"
+                  class="h-10 w-auto"
+                  loading="eager"
+                />
+              </a>
+            </div>
+
+            <p class="mt-4 text-xs text-white/45">
+              Best for quick questions, availability checks, or early alignment.
+            </p>
+          </div>
+
+          <p class="mt-6 text-xs text-white/45">
+            Typical starting point: product builds, internal platforms, automations, integrations.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

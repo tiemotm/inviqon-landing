@@ -1,0 +1,30 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "inviqon",
+  description = "inviqon — Software House & Product Studio. Wir bauen digitale Produkte von 0→1 und übernehmen ausgewählte Projekte.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#05060b" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://inviqon.com" />
+  </head>
+
+  <body class="min-h-screen text-white antialiased overflow-x-hidden">
+    <!-- Background Layers -->
+    <div class="bg-field" aria-hidden="true"></div>
+    <div class="bg-noise" aria-hidden="true"></div>
+    <div class="bg-vignette" aria-hidden="true"></div>
+
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,218 @@
+@import "tailwindcss";
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-500.css";
+@import "@fontsource/inter/latin-600.css";
+@import "@fontsource/inter/latin-700.css";
+
+:root {
+  color-scheme: dark;
+}
+
+/* Base */
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #05060b;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* ---------- Premium liquid glass background ---------- */
+/* dark base with controlled highlights (blue/purple, less rainbow) */
+.bg-field {
+  position: fixed;
+  inset: 0;
+  z-index: -30;
+  background:
+    radial-gradient(900px 520px at 20% 18%, rgba(35, 190, 255, 0.22), transparent 62%),
+    radial-gradient(880px 560px at 78% 28%, rgba(170, 120, 255, 0.18), transparent 64%),
+    radial-gradient(1000px 700px at 55% 80%, rgba(60, 255, 210, 0.06), transparent 68%),
+    linear-gradient(180deg, #05060b 0%, #060713 55%, #05060b 100%);
+  filter: saturate(1.05) contrast(1.05);
+}
+
+/* a soft “liquid” highlight band like glass reflections */
+.bg-field::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  background:
+    radial-gradient(700px 320px at 45% 38%, rgba(255, 255, 255, 0.10), transparent 60%),
+    radial-gradient(780px 360px at 65% 42%, rgba(120, 160, 255, 0.14), transparent 62%),
+    radial-gradient(720px 340px at 35% 52%, rgba(180, 120, 255, 0.10), transparent 64%);
+  mix-blend-mode: screen;
+  opacity: 0.65;
+  transform: translateZ(0);
+}
+
+/* grain/noise overlay (subtle, not dirty) */
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  z-index: -20;
+  pointer-events: none;
+  opacity: 0.10;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='340'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='340' height='340' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+  background-size: 340px 340px;
+}
+
+/* vignette for premium depth */
+.bg-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0) 45%,
+      rgba(0,0,0,0.55) 100%
+    );
+}
+
+/* ---------- Glass system ---------- */
+/* better glass than before: less grey, more depth, subtle border shine */
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.06) 0%,
+    rgba(255,255,255,0.03) 100%
+  );
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 20px 80px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+}
+
+/* tiny accent gradient (use sparingly) */
+.accent {
+  background: linear-gradient(120deg, rgba(35,190,255,.95), rgba(170,120,255,.92));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-2,
+  .reveal-3 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+@keyframes fadeUpBlur {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Stagger helpers */
+.reveal {
+  opacity: 0;
+  animation: fadeUpBlur 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.reveal-2 { animation-delay: 120ms; }
+.reveal-3 { animation-delay: 240ms; }
+.reveal-4 { animation-delay: 360ms; }
+.reveal-5 { animation-delay: 480ms; }
+
+.glass-sweep {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.glass-sweep::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+
+  top: -120%;
+  left: -100%;
+  width: 70%;
+  height: 360%;
+
+  /* Visibility envelope:
+     strong in center, fully diffused at edges */
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.00) 0%,
+    rgba(255,255,255,0.00) 30%,
+
+    /* soft lead-in */
+    rgba(35,190,255,0.04) 40%,
+    rgba(170,120,255,0.08) 46%,
+
+    /* specular core (only visible here) */
+    rgba(255,255,255,0.45) 50%,
+
+    /* decay */
+    rgba(170,120,255,0.08) 54%,
+    rgba(35,190,255,0.04) 60%,
+
+    /* fully gone before edges */
+    rgba(255,255,255,0.00) 70%,
+    rgba(255,255,255,0.00) 100%
+  );
+
+  transform: translateX(-160%) rotate(16deg);
+  opacity: 0;
+
+  filter: blur(0.45px);
+  mix-blend-mode: screen;
+
+  transition:
+    transform 950ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 180ms ease-out;
+}
+
+/* Hover trigger: full sweep */
+.glass-sweep:hover::after,
+.glass-sweep:focus-within::after {
+  transform: translateX(160%) rotate(16deg);
+  opacity: 0.18;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-sweep::after { display: none; }
+}
+
+.work-card {
+  transform: translateZ(0);
+}
+
+.work-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 1rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 250ms ease;
+  background: radial-gradient(800px 140px at 30% 10%, rgba(35,190,255,0.20), transparent 55%),
+              radial-gradient(700px 160px at 70% 15%, rgba(170,120,255,0.18), transparent 60%);
+  filter: blur(10px);
+}
+
+.work-card:hover::before {
+  opacity: 1;
+}
