@@ -72,7 +72,7 @@ export const work: WorkItem[] = [
     year: "2025–",
     coverImage: fulviroCover,
     coverGradient: "from-violet-500/30 via-indigo-300/20 to-cyan-300/20",
-    // website: "https://fulviro.com",
+    website: "https://fulviro.com",
   },
   {
     slug: "klassy",
